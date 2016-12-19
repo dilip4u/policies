@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AngularJS Tutorial</title>
+<link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="lib/angular.min.js"></script>
+<script src="lib/angular-resource.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/policyController.js"></script>
+<script src="js/policyService.js"></script>
+</head>
+<body ng-app="app" ng-controller="PolicyController as main">
+
+    <div class="container">
+        <div class="well" style="background-color:#1486c1">
+            <h1 style="color:white">{{main.title}}</h1>
+        </div>
+        <div class="alert alert-success" ng-show="showSuccessAlert">
+            <button type="button" class="close"
+                data-ng-click="switchBool('showSuccessAlert')">×</button>
+            <strong>Policy Change has been queued!</strong> 
+        </div>
+        <form name="mainform" role="form" class="form-horizontal"
+            ng-submit="main.createPolicyRequest()">
+            <div class="form-group">
+                <label class="control-label col-sm-2">Hostname: </label> <input
+                    type="text" class="control-label col-sm-5"
+                    placeholder="Enter Hostname" ng-model="main.passwordPolicy.host"
+                    required />
+            </div>
+            <div class="form-group" class="control-label col-sm-2">
+                <label class="control-label col-sm-2">Enforce Password
+                    History:</label> <input type="number" class="control-label col-sm-5"
+                    placeholder="Enter password history count"
+                    ng-model="main.passwordPolicy.enforcePasswordHistory" required />
+            </div>
+            <div class="form-group" class="control-label col-sm-2">
+                <label class="control-label col-sm-2">Maximum Password Age:
+                </label> <input type="number" class="control-label col-sm-5"
+                    placeholder="Enter Max password age"
+                    ng-model="main.passwordPolicy.maxPasswordAge" required />
+            </div>
+            <div class="form-group" class="control-label col-sm-2">
+                <label class="control-label col-sm-2">Minimum Password Age:
+                </label> <input type="number" class="control-label col-sm-5"
+                    placeholder="Enter Min Password age"
+                    ng-model="main.passwordPolicy.minPasswordAge" required />
+            </div>
+            <div class="form-group" class="control-label col-sm-2">
+                <label class="control-label col-sm-2">Minimum Password
+                    Length: </label> <input type="number"
+                    placeholder="Enter Min Password Length"
+                    class="control-label col-sm-5"
+                    ng-model="main.passwordPolicy.minPasswordLength" required />
+            </div>
+            <div class="form-group" class="control-label col-sm-2">
+                <label class="control-label col-sm-2">Complexity
+                    Requirements:</label> <input type="radio"
+                    class="radio-inline control-label" name="complexityReqs"
+                    value="true"
+                    ng-model="main.passwordPolicy.mustMeetComplexityRequirements"
+                    required> Enable</input> <label class="radio-inline"> <input
+                    type="radio" class="control-label radio-inline"
+                    name="complexityReqs" value="false"
+                    ng-model="main.passwordPolicy.mustMeetComplexityRequirements"
+                    required> Disable</input>
+                </label>
+            </div>
+            <div class="form-group" class="control-label col-sm-2">
+                <label class="control-label col-sm-2">Enable Encryption: </label> <input
+                    type="radio" class="control-label radio-inline"
+                    name="enableEncrypt" value="true"
+                    ng-model="main.passwordPolicy.storePasswordUsingReversibleEncryption"
+                    required> Enable</input> <input type="radio"
+                    class="control-label radio-inline" name="enableEncrypt"
+                    value="false"
+                    ng-model="main.passwordPolicy.storePasswordUsingReversibleEncryption"
+                    required /> Disable</input>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-success pull-left">
+                        <span class="glyphicon glyphicon-plus-sign"></span> Push Policy to
+                        Queue
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
