@@ -2,7 +2,9 @@ Project name: password-policy-app
 Project description : Built to host enterprise host management policy services like password policy administration, account policy administration, etc., currently has only password policy administration services.
 Developer : Dilip Kancharla
 Compilation Date: 07/06/2015
+
 ---------------------------------------------------------------
+
 1. Install instructions:
 
   1.1 Configuration Checks:
