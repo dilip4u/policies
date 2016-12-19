@@ -71,4 +71,4 @@ Cache-Control: no-cache
   5. Questions:
      
       - Please make sure you check logs {based of logging location specified in log4j.xml}
-     - Email : dilipkancharla@outlook.com or call: 5133650588. 
+     - Email 
